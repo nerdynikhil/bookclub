@@ -23,10 +23,18 @@ Future<void> _signUpUser (
 
 
     try {
-     if (await _currentUser.signUpUser(email, password)) {
+      String _returnString = await _currentUser.signUpUser(email, password);
+     if (_returnString == "success") {
        Navigator.pop(context);
      }
+     else{
+        Scaffold.of(context).showSnackBar(
+                  SnackBar(content: Text(_returnString),
+                  duration: Duration(seconds: 2),)
+                );
+     }
     } catch (e) {
+      print(e);
     }
 
   }
