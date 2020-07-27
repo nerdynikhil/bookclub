@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:book_club/widgets/ourContainer.dart';
 import 'package:provider/provider.dart';
 
+enum LoginType{
+  email, google
+}
+
+
 class OurLoginForm extends StatefulWidget {
   @override
   _OurLoginFormState createState() => _OurLoginFormState();
@@ -80,7 +85,22 @@ class _OurLoginFormState extends State<OurLoginForm> {
                           onPressed: () { 
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => OurSignup(),));
                            },
-                          child:Text("Don't have an account? Sign up here."),)
+                          child:Text("Don't have an account? Sign up here."),),
+                          RaisedButton(
+            onPressed: () { 
+
+                           },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset("assets/glogo.png", height: 25,),
+                              Text("Log in with Google", style: TextStyle(color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),),
+                            ],
+                          ),
+                        )
+                          
                       ],
                     ),
                     
